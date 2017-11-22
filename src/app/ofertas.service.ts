@@ -2,7 +2,7 @@ import { Http } from '@angular/http'
 import { Injectable } from '@angular/core'
 import { Oferta } from './shared/oferta.model'
 import { URL_API } from './app.api'
-
+import { URL_API_USAR } from './app.api'
 import 'rxjs/add/operator/toPromise'
 
 @Injectable()
@@ -29,6 +29,10 @@ export class OfertasService {
             .then((resposta: any) => {
                 return resposta.json().shift()
             })
+    }
+
+    public getComoUsarOfertaPorId(id: number): Promise<String> {
+        this.http.get(`${URL_API_USAR}`)
     }
 
 }
